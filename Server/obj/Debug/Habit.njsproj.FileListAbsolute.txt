@@ -1,0 +1,3 @@
+C:\Users\artem\source\repos\Habit\Habit\obj\Debug\Habit.njsprojAssemblyReference.cache
+C:\Users\artem\source\repos\Habit\Habit\obj\Debug\Habit.njsproj.CoreCompileInputs.cache
+C:\Users\artem\source\repos\Habit\Habit\bin\Microsoft.NodejsTools.WebRole.dll

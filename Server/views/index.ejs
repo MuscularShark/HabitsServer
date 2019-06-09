@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/StartPage.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/ModalSignUp.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/deal-page.css">
+
+</head>
+<body>
+    <% if(!user.id) { %>
+    <main class="start-page-wrapper">
+    <section class="text-sections">
+        <div class="logo">
+        <p>MyNewHabits</p>
+        <button class='button-task' id='showLogIn'>Log in</button>
+        <button class='button-task' id='showSignUp'>Sign up</button>
+        </div>
+        <div class="quote">
+        <p>your chance to make new habits</p>
+        </div>
+        <div class="description">
+        <p>With this application tou will have a chance to improve you life.
+            Our habits - our health, our life, our happiness.
+            You will be able to track doing your deals.
+            It is much more better to take all your daily deals than store them in your head.</p>
+        </div>
+    </section>
+    <section class="picture-section">
+        <img src="/images/background.jpg" class="background-image" alt="background"/>
+    </section>
+    </main>
+    <div id="popup-signup" class="modal-wrapper">
+    <form class="modal-window">
+        <button class="button-close">Close</button>
+        <p class="modal-title">Sign Up</p>
+        <label>Email:<input type="email" class="input-button" id='signup-email' required/></label><br/>
+        <label>Password:<input class="input-button" id='signup-password' type='password' required/></label><br/>
+        <label>Name:<input class="input-button" id='userName' required/></label><br/>
+        <label>Age:<input type="number" class="input-button" id='userAge' required/></label><br/>
+        <label>Weigh:<input type="number" class="input-button" id='userWeight' required/></label><br/>
+        <label>Illness:<input class="input-button" id='userIllness' required/></label><br/>
+        <button type="submit" class="entries-modal-button" id='signup'>Sign up</button>
+    </form>
+    </div>
+    <div id="popup-login" class="modal-wrapper">
+    <form class="modal-window">
+        <button class="button-close">Close</button>
+        <p class="modal-title">Log In</p>
+        <label>Email:<input class="input-button" id='login-email' required/></label><br/>
+        <label>Password:<input class="input-button" id='login-password' type='password' required/></label>
+        <button type="submit" class="entries-modal-button" id='login'>Log in</button>
+    </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/popup.js"></script>
+
+    <% } else { %>
+
+    <header class="page-header">
+        <div class="container">
+            <a class="header__logo" href="/">
+                MyNewHabbits
+            </a>
+            <a id="user-statistics" class="header__button user-name" href="/deal//getStatistics/added/<%= user.id %>"> Statistics </a>
+            <a id="user-edit" class="header__button user-name" data-id="<%= user.id %>"> <%= user.Nickname %> </a>
+            <a class="header__button logout-button">Log out</a>
+        </div>
+    </header>
+    <main class="page-main">
+        <div class="container gridcss">
+            <div class="main__add-deal">
+                <h2 class="main__heading">
+                    Add Deal
+                </h2>
+                <form class="add-deal__form">
+                    <label for="input-name" class="form__label">
+                        <span class="label__span">Name:</span>
+                        <input id="input-name" name="input-name" type="text" class="form__input" required>
+                    </label>
+                    <label for="select-category" class="form__label"><span class="label__span">Category:</span>
+                        <select name="input-category" class="form__select" id="select-category" required>
+                            <option value="education">Education</option>
+                            <option value="hobby">Hobby</option>
+                            <option value="sport">Sport</option>
+                        </select>
+                    </label>
+                    <label for="select-duration" class="form__label">
+                        <span class="label__span">Duration:</span>
+                        <select name="input-category" class="form__select" id="select-duration" required>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                        </select>
+                    </label>
+                    <label for="select-average" class="form__label">
+                        <span class="label__span">Average:</span>
+                        <select name="average" class="form__select" id="select-average" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </label>
+                    <button type="submit" class="deal__add">New deal</button>
+                </form>
+            </div>
+            <div class="main__deals">
+                <!-- <div class="container"> -->
+                    <ul class="deals__list">
+                     <!-- <li class="deals__item done"><a href="#" class="deals__link"><input id="check" type="checkbox">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse, aspernatur 1</a></li>
+                      <li class="deals__item"><a href="#" class="deals__link"><input id="check" type="checkbox">Test deal name 1</a></li>!-->
+                     <%for(var i = 0; i < deals.length; i++){%>
+                   <!-- <li class="deals__item"><a href="/deal/<%=deals[i]._id%>" class="deals__link"><%=deals[i].name%></a></li>!-->
+                     <li class="deals__item"><a href="/deal/<%=deals[i]._id%>" class="deals__link"><input id="check" type="checkbox"><%=deals[i].name%></a></li>
+                    <%}%>
+                     </ul>
+                 <!-- </div> -->
+            </div>
+        </div>
+    </main>
+    <footer>Habit Maker 2019</footer>
+    <div id="popup-edit" class="modal-wrapper">
+        <form class="modal-window">
+            <button class="button-close">Close</button>
+            <p class="modal-title">Edit</p>
+            <label>Email:<input type="email" class="input-button" id='signup-email' required/></label><br/>
+            <label>Name:<input class="input-button" id='userName' required/></label><br/>
+            <label>Age:<input type="number" class="input-button" id='userAge' required/></label><br/>
+            <label>Weight:<input type="number" class="input-button" id='userWeight' required/></label><br/>
+            <label>Illness:<input class="input-button" id='userIllness' required/></label><br/>
+            <button type="submit" class="user_edit" id='Edit'>Edit</button>
+            <input style="display: none;" id='userId' value="<%=user.id%>" />
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/popup.js"></script>
+    <% } %>
+</body>
+</html>

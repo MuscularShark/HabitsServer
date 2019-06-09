@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "description": "Backend",
+  "main": "app.js",
+  "author": {
+    "name": "Hihlaviy Heorhii"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "chart.js": "^2.7.3",
+    "connect-mongo": "^2.0.3",
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.3.16",
+    "node-datetime": "^2.1.2",
+    "static-asset": "^0.6.0"
+  }
+}

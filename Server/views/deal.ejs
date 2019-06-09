@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/StartPage.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/ModalSignUp.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/deal-page.css">
+</head>
+<body>
+    <header class="page-header">
+        <div class="container">
+            <a class="header__logo" href="/">
+                MyNewHabbits
+            </a>
+            <a id="user-edit" class="header__button user-name" data-id=""></a>
+            <a class="header__button logout-button">Log out</a>
+        </div>
+    </header>
+    <main style="height: 650px;">
+            <h2 style="margin-left: 40%;">
+                <%=deal.name%>
+            </h2>
+            <p></p>
+            <p></p>
+            <div style="margin-left: 30%; font-size: 20px;">
+                <form class="add-deal__form">
+                    <label for="input-name" class="form__label">
+                        <span class="label__span">Name:</span>
+                        <input id="input-name" name="input-name" type="text" class="form__input" value="<%=deal.name%>" required>
+
+                    </label>
+                    <label for="select-category" class="form__label"><span class="label__span">Category:</span>
+                        <select name="input-category" class="form__select" id="select-category" required>
+                            <option value="education">Education</option>
+                            <option value="hobby">Hobby</option>
+                            <option value="sport">Sport</option>
+                        </select>
+                    </label>
+                    <label for="select-duration" class="form__label">
+                        <span class="label__span">Duration:</span>
+                        <select name="input-category" class="form__select" id="select-duration" required>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                        </select>
+                    </label>
+                    <label for="select-average" class="form__label">
+                        <span class="label__span">Average:</span>
+                        <select name="average" class="form__select" id="select-average" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </label>
+                    <button type="submit" class="deal__edit">Edit deal</button>
+                    <input id="input-id" name="input-id" type="text" style="display: none;" value="<%=deal._id%>" >
+                </form>
+            </div>
+    </main>
+    <div id="popup-edit" class="modal-wrapper">
+        <form class="modal-window">
+            <button class="button-close">Close</button>
+            <p class="modal-title">Edit</p>
+            <label>Email:<input type="email" class="input-button" id='signup-email' required/></label><br/>
+            <label>Name:<input class="input-button" id='userName' required/></label><br/>
+            <label>Age:<input type="number" class="input-button" id='userAge' required/></label><br/>
+            <label>Weight:<input type="number" class="input-button" id='userWeight' required/></label><br/>
+            <label>Illness:<input class="input-button" id='userIllness' required/></label><br/>
+            <button type="submit" class="entries-modal-button" id='Edit'>Edit</button>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/popup.js"></script>
+    <script>
+        $("#select-category").val("<%=deal.category%>");
+        $("#select-duration").val("<%=deal.duration%>");
+        $("#select-average").val("<%=deal.average%>");
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/StartPage.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/ModalSignUp.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/deal-page.css">
+</head>
+<body>
+    <header class="page-header">
+        <div class="container">
+            <a class="header__logo" href="/">
+                MyNewHabbits
+            </a>
+            <a id="user-edit" class="header__button user-name" data-id=""></a>
+            <a class="header__button logout-button">Log out</a>
+        </div>
+    </header>
+    <main style="height: 650px;">
+            <center>
+            <h2>
+                Statistics
+            </h2>
+            <p></p>
+            <p></p>
+            <div style="margin-top: 5%; font-size: 20px; width: 400px;">
+               <div style="width: 80%; text-align: left; float: left;">Added deals:</div><div style="text-align: right; width: 20%; float: left;"><%=added%></div>
+
+               <div style="width: 80%; text-align: left; float: left;">Succeeded deals:</div><div style="text-align: right; width: 20%; float: left;"><%=count%></div>
+               <div style="width: 80%; text-align: left; float: left;">Succeeded Education deals:</div><div style="text-align: right; width: 20%; float: left;"><%=result.education%></div>
+               <div style="width: 80%; text-align: left; float: left;">Succeeded Hobby deals:</div><div style="text-align: right; width: 20%; float: left;"><%=result.hobby%></div>
+               <div style="width: 80%; text-align: left; float: left;">Succeeded Sport deals:</div><div style="text-align: right; width: 20%; float: left;"><%=result.sport%></div>
+              
+            </div>
+            </center>
+    </main>
+    <div id="popup-edit" class="modal-wrapper">
+        <form class="modal-window">
+            <button class="button-close">Close</button>
+            <p class="modal-title">Edit</p>
+            <label>Email:<input type="email" class="input-button" id='signup-email' required/></label><br/>
+            <label>Name:<input class="input-button" id='userName' required/></label><br/>
+            <label>Age:<input type="number" class="input-button" id='userAge' required/></label><br/>
+            <label>Weight:<input type="number" class="input-button" id='userWeight' required/></label><br/>
+            <label>Illness:<input class="input-button" id='userIllness' required/></label><br/>
+            <button type="submit" class="entries-modal-button" id='Edit'>Edit</button>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/popup.js"></script>
+</body>
+</html>
