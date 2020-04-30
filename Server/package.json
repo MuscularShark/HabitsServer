@@ -22,7 +22,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "mongoose": "^5.3.16",
     "node-datetime": "^2.1.2",
     "static-asset": "^0.6.0"
